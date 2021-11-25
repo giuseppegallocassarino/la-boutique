@@ -111,3 +111,22 @@ setInterval(() => {
   heroImage.style.backgroundImage = `url(${eval("img" + counter)})`
   counter < totImg ? counter++ : counter = 1
 }, 3000);  
+
+let reviews = new Array();
+reviews[0] = "10/10 ";
+reviews[1]= "Questo sito è bellissimo";
+reviews[2]= "Ottimo";
+reviews[3]="Sicuro";
+
+let counter = 0;
+function loop(){
+  if (counter > 2) counter =0;
+  document.getElementById("box_reviews").firstElementChild.innerHTML = 
+  reviews[counter];
+  counter++;
+  setTimeout(loop, 2000);
+
+}
+
+loop();
+
