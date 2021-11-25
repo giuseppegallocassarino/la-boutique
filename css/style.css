@@ -146,3 +146,68 @@ strong {
 .product p {
   align-self: flex-end;
 }
+
+ /* #search {
+  width: 400px;
+  height: 200px;
+}
+
+.form_submit {
+  padding: 100px;
+}
+
+.recenzione_ {
+  font-size: 30px;
+  padding: 200px;
+  margin-top: 50px;
+}
+*/
+
+#box_reviews {
+  position: relative;
+  font-size: 20px;
+  font-style: italic;
+
+  width: 600px;
+  height: 150px;
+  margin-top: 100px;
+  padding: 10px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid pink;
+  background: white;
+  color: black;
+  box-shadow: 0 0 8px black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#box_reviews:hover {
+  border-radius: 50%;
+  transition-duration: 1s;
+  background-color: blue ;
+}
+
+
+
+
+footer{
+  padding: 50px 20px;
+}
+
+footer{
+  background-color: black;
+  padding: 100px 50px;
+  text-align: center;
+  color: white;
+}
+
+ :placeholder-shown {
+
+color: #f6416c;
+
+}
