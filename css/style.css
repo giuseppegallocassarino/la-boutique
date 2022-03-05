@@ -77,7 +77,7 @@ strong {
 .cartBanner {
   display: flex;
   justify-content: flex-end;
-  background-image: linear-gradient(135deg, #f6416c 10%, #fff6b7 100%);
+  background-image: linear-gradient(135deg, #a7a7a7 10%, #b7ffc7 100%);
 }
 
 .cartBanner .cartProductsNum {
@@ -128,14 +128,14 @@ strong {
   align-self: center;
 
   border: 0;
-  background-color: lightcoral;
+  background-color: rgb(182, 255, 221);
   color: white;
   font-weight: bold;
   cursor: pointer;
 }
 
 .showCartBtn:hover, .searchBtn_hover {
-  background-color: lightpink;
+  background-color: rgb(182, 255, 221);
 }
 
 
