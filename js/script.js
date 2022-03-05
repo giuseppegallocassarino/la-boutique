@@ -1,3 +1,6 @@
+// import { products } from "./products";
+
+
 function setCartProductsNum() {
   cartProductsNum.textContent = `Numero prodotti: ${cartList.length}`;
 }
@@ -23,8 +26,17 @@ function createProduct(parent, imgUrl, productTitle, textPrice, idProduct) {
       )
     );
     setCartProductsNum();
-    alert(`Prodotto aggiunto al carrello, numero prodotti: ${cartList.length}`);
+    // alert(`Prodotto aggiunto al carrello, numero prodotti: ${cartList.length}`);
     // Nel caso in cui volessimo aggiungere una interazione col LocalStorage
+
+    const modal = document.querySelector(".modal");
+    
+    modal.classList.toggle("modal2");
+
+    setTimeout(() => {
+      modal.classList.toggle("modal2");
+    },1200)
+
 
     localStorage.setItem("totCartitems", JSON.stringify(cartList));
 
@@ -62,6 +74,43 @@ function renderProducts(listItems) {
   });
 }
 
+function handleShowCartBtn() {
+  // showCartBtn.setAttribute("disabled", true);
+  wrapper.removeChild(showCartBtn);
+  wrapperProducts.classList.add("sideViewAnim");
+
+  document
+    .querySelectorAll(".product")
+    .forEach((product) => wrapperProducts.removeChild(product));
+
+  renderProducts(JSON.parse(localStorageTot) || cartList);
+
+  setTimeout(() => {
+    wrapperProducts.classList.remove("sideViewAnim");
+  }, 1000);
+}
+
+function handleFilterSearch() {
+
+  wrapperProducts.classList.add("searchAnim");
+
+  document
+    .querySelectorAll(".product")
+    .forEach((product) => wrapperProducts.removeChild(product));
+
+    renderProducts(
+      productsList.filter((product) =>
+        product.title
+          .toLowerCase()
+          .includes(inputFilterSearch.value.toLowerCase())
+      )
+    );
+
+  setTimeout(() => {
+    wrapperProducts.classList.remove("searchAnim");
+  }, 1000);
+}
+
 // Async await
 const getProductsList = async () => {
   const res = await fetch("https://fakestoreapi.com/products");
@@ -79,7 +128,7 @@ const getProductsList = async () => {
 
 let productsList = [];
 const wrapperProducts = document.querySelector(".wrapper__products");
-
+const wrapper = document.querySelector(".wrapper");
 // Parte inerente alla logica del carrello
 let cartList = [];
 
@@ -87,6 +136,9 @@ const localStorageTot = localStorage.getItem("totCartitems");
 const cartBtn = document.querySelector(".cartBtn");
 const cartProductsNum = document.querySelector(".cartProductsNum");
 const clearCartBtn = document.querySelector(".clearCart");
+const showCartBtn = document.querySelector(".showCartBtn");
+const searchBtn = document.querySelector(".searchBtn");
+const inputFilterSearch = document.querySelector(".inputFilterSearch");
 
 // Flusso generale
 const parsedTotCardItemsLen =
@@ -97,36 +149,53 @@ getProductsList();
 
 clearCartBtn.addEventListener("click", () => {
   cartList.length = 0;
+  localStorage.removeItem("totCartitems");
   setCartProductsNum();
 });
 
-let counter = 1;
-const totImg = 3;
-const img1 = "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-const img2 = "https://images.unsplash.com/photo-1529720317453-c8da503f2051?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-const img3 = "https://media.istockphoto.com/photos/fits-perfect-picture-id938463764" 
+showCartBtn.addEventListener("click", handleShowCartBtn);
 
-const heroImage = document.querySelector(".overlay")
-setInterval(() => {
-  heroImage.style.backgroundImage = `url(${eval("img" + counter)})`
-  counter < totImg ? counter++ : counter = 1
-}, 3000);  
+searchBtn.addEventListener("click", handleFilterSearch);
+
+// funzione slideshow Hero
+
+function slideshow (){
+setTimeout(() => {
+  document.querySelector(".overlay").className="overlayDue"
+
+setTimeout(() => {
+  document.querySelector(".overlayDue").className="overlayTre"
+
+setTimeout(() => {
+  document.querySelector(".overlayTre").className="overlay"
+},3000);
+},3000);
+},3000);
+};
+
+window.onload = setInterval(function(){slideshow();}, 9000);
+
+
+
 
 let reviews = new Array();
-reviews[0] = "10/10 ";
-reviews[1]= "Questo sito è bellissimo";
-reviews[2]= "Ottimo";
-reviews[3]="Sicuro";
+reviews[0] = "Il miglior ecommerce in circolazione!";
+reviews[1] ="Eccezionale! Tutto a portata di click!";
+reviews[2] = "Peccato non averlo scoperto prima";
+reviews[3] = "Ottimo rapporto qualità prezzo! Consigliatissimo";
 
 let counter = 0;
-function loop(){
-  if (counter > 2) counter =0;
-  document.getElementById("box_reviews").firstElementChild.innerHTML = 
-  reviews[counter];
+function loop() {
+  if (counter > 2) counter = 0;
+  document.getElementById("text__review").firstElementChild.innerHTML =
+    reviews[counter];
   counter++;
   setTimeout(loop, 2000);
-
 }
-
 loop();
+
+
+
+
+
 

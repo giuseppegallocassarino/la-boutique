@@ -4,18 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>🛒La boutique🛒</title>
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <div class="modal">
+          <p>Il prodotto è stato aggiunto al carrello 🛒</p>
+    </div>
     <div class="wrapper">
       <div class="overlay"></div>
       <div class="__hero">
         <div class="intestazione">
-          <h2>La moda contemporanea</h2>
-          <p>Lo stile non è opinabile</p>
+          <h2>New Products</h2>
+          <p> </p>
         </div>
       </div>
+      
       <div class="cartBanner">
         <p class="cartProductsNum">Carrello vuoto</p>
         <button class="clearCart">❌</button>
@@ -24,24 +28,27 @@
         <h2>La boutique</h2>
         <h4>Trend e design</h4>
       </div>
+      <label for="search-filter" class="labelFilterSearch">Cerca</label>
+      <input type="text" class="inputFilterSearch" id="search-filter" />
+      <button class="searchBtn">Ricerca</button>
+
+      <button class="showCartBtn">Mostra carrello 🛒</button>
       <div class="wrapper__products"></div>
     </div>
-
-
-     <!----<form class="form_review"> 
-      <label for="search" class="recenzione_">Lascia una recenzione</label>
-      <input type="text" name="search" id="search"
-       placeholder="Scrivi una recenzione" autocomplete="off" />
-      <button>submit</button>
-    </form> ---->
-
-    <div id="box_reviews">
-      <p></p>
-    </div>
-
     <footer>
+  <div class="wrapper__reviews">
+    <h2>I nostri clienti dicono di noi</h2>
+    <p>⭐⭐⭐⭐⭐</p>
+    <div id="text__review">
+      <p></p>
+      </div>
+    <hr>
+        <p>Copyright 2021 - Edgemony</p>
+      </footer>
 
-    </footer>
     <script src="./js/script.js" type="module"></script>
+    
+    
   </body>
+
 </html>
