@@ -195,7 +195,7 @@ top:-500px;
 transform: translate(-50% -50%);
 transition: all 0.35s;
 opacity: 2;
-background-image: linear-gradient(135deg, #f6416c 10%, #fff6b7 100%);
+background-image: linear-gradient(135deg, #a7a7a7 10%, #b7ffc7 100%);
 border-radius: 10px;
 line-height: 100px;
 text-align: center;
@@ -215,7 +215,7 @@ font-size: large;
 
 .wrapper__reviews{
   text-align: center;
-  background-image: linear-gradient(135deg, #f6416c 10%, #fff6b7 100%);
+  background-image: linear-gradient(135deg, #a7a7a7 10%, #b7ffc7 100%);
   padding-top: 20px;
   padding-bottom: 20px;
 
